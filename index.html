@@ -5,17 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      body {
+        margin: 0px;
+      }
+      .before-finished {
+        cursor: default;
+      }
+      .after-finished {
+        cursor: pointer !important;
+      }
+
+      .video-container {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      .video-container video {
+        /* Make video to at least 100% wide and tall */
+        min-width: 100%;
+        min-height: 100%;
+
+        /* Setting width & height to auto prevents the browser from stretching or squishing the video */
+        width: auto;
+        height: auto;
+
+        /* Center the video */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
   </head>
   <body>
-    <div>
-        <a id="mylink" href="javascript:void(0);">
-            <video id="myVideo" width="100%" height="100%" autoplay muted>
-                <source src="burrow.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-           
-        </a>
-      </div>
+    <div class="video-container">
+      <a id="mylink" href="javascript:void(0);" class="before-finished">
+      <video id="myVideo" autoplay muted>
+        <source src="burrow.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      </a>
+    </div>
 
     <script type="text/javascript">
       document
@@ -24,7 +58,8 @@
       function myHandler(e) {
         // What you want to do after the event
         console.log("video is complted===");
-        document.getElementById("mylink").href="other-page.html"; 
+        document.getElementById("mylink").href = "other-page.html";
+        document.getElementById("mylink").classList.add("after-finished");
       }
     </script>
   </body>
