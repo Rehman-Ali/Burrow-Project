@@ -52,15 +52,31 @@
     </div>
 
     <script type="text/javascript">
-      document
-        .getElementById("myVideo")
-        .addEventListener("ended", myHandler, false);
-      function myHandler(e) {
-        // What you want to do after the event
-        console.log("video is complted===");
+     var video = document.getElementById("myVideo");
+
+
+     video.addEventListener('loadeddata', (e) => {
+   //Video should now be loaded but we can add a second check
+
+   if(video.readyState >= 3){
+       //your code goes here
+       console.log("video loaded====")
+       setTimeout(() => {
         document.getElementById("mylink").href = "other-page.html";
         document.getElementById("mylink").classList.add("after-finished");
-      }
+       }, 24000);
+
+   }
+
+});
+     // document
+      //   .getElementById("myVideo")
+      //   .addEventListener("ended", myHandler, false);
+      // function myHandler(e) {
+      //   // What you want to do after the event
+      //   console.log("video is complted===");
+      //   
+      // }
     </script>
   </body>
 </html>
