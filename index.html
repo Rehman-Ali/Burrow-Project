@@ -45,7 +45,7 @@
     <div class="video-container">
       <a id="mylink" href="javascript:void(0);" class="before-finished">
       <video id="myVideo" autoplay muted>
-        <source src="burrow.mp4" type="video/mp4" />
+        <source src="burrow_3.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       </a>
@@ -60,7 +60,6 @@
 
    if(video.readyState >= 3){
        //your code goes here
-       console.log("video loaded====")
        setTimeout(() => {
         document.getElementById("mylink").href = "other-page.html";
         document.getElementById("mylink").classList.add("after-finished");
