@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-     
-
       body {
         margin: 0px;
         padding: 0;
@@ -24,15 +22,22 @@
         top: 0;
         left: 0;
       }
+
+      @media screen and (max-width: 767px) {
+        #myVideo {
+          object-fit: contain;
+          background-color: #0a0a09;
+        }
+      }
     </style>
   </head>
   <body>
     <div class="video-container">
       <a id="mylink" href="javascript:void(0);" class="before-finished">
-        <video id="myVideo" autoplay muted poster="/poster.PNG">
-          <source src="burrow_3.mp4" type="video/mp4">
-          <source src="burrow_3.webm" type="video/webm">
-          <source src="burrow_3.ogv" type="video/ogg">
+        <video id="myVideo" autoplay muted poster="/poster.png">
+          <source src="burrow_3.mp4" type="video/mp4" />
+          <source src="burrow_3.webm" type="video/webm" />
+          <source src="burrow-3.ogg" type="video/ogg" />
           Your browser does not support the video tag.
         </video>
       </a>
@@ -53,5 +58,13 @@
         }
       });
     </script>
+    <script>
+      (function() {
+        var video = document.getElementById("myVideo");
+        video.addEventListener( "canplay", function() {
+          video.play();
+        });
+      })();
+  </script> 
   </body>
 </html>
